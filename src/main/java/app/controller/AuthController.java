@@ -29,7 +29,7 @@ public class AuthController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 500, message = "Internal Server Error") })
     @PostMapping("/v1/authenticate")
-    private ResponseEntity authenticate(@RequestBody AuthenticationRequest authRequest){
+    public ResponseEntity authenticate(@RequestBody AuthenticationRequest authRequest){
 
         if(authService.validateCredentials(authRequest))
             return new ResponseEntity(HttpStatus.OK);
