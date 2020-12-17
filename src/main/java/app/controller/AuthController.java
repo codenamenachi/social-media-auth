@@ -26,9 +26,9 @@ public class AuthController {
      */
     @ApiOperation(value = "Authenticate User", notes = "Authenticate User")
     @ApiResponses(value = { @ApiResponse(code = 200, message = "User authenticated successfully"),
-            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 401, message = "Unautho"),
             @ApiResponse(code = 500, message = "Internal Server Error") })
-    @PostMapping("/v1/authenticate")
+    @PostMapping(value = "/v1/authenticate")
     public ResponseEntity authenticate(@RequestBody AuthenticationRequest authRequest){
 
         if(authService.validateCredentials(authRequest))
